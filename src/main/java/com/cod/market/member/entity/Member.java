@@ -1,7 +1,26 @@
 package com.cod.market.member.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private long id;
+    private String username;
+    private String password;
+    private String nickname;
+    private String email;
+    @CreatedDate
+    private LocalDateTime createDate;
+    @LastModifiedDate
+    private LocalDateTime modifyDate;
 }
