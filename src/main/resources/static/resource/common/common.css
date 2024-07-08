@@ -16,3 +16,7 @@ html > body {
   font-family: 'Pretendard-Regular';
   text-underline-position: under;
 }
+
+.collapse {
+    visibility: visible !important;
+}
