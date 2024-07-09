@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html layout:decorate="~{/layout/layout}">
+<section layout:fragment="content" class="section-prod-list">
+  <div class="container">
+    <h1 class="text-[1.5rem] font-bold">게시물 리스트</h1>
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px] mt-3">
+      <li th:each="article, loop : ${articles}" class="flex flex-col">
+        <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.id}" class="text-center mt-2"></a>
+        <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.title}" class="text-center mt-2"></a>
+        <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.author}" class="text-center mt-2"></a>
+        <a th:href="@{|/article/detail/${article.id}|}" th:text="${#temporals.format(article.createDate, 'yyyy-MM-dd HH:mm')}" class="text-center mt-2"></a>
+      </li>
+    </ul>
+  </div>
+</section>
+</html>

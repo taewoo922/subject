@@ -3,10 +3,12 @@ package com.cod.market.member.service;
 import com.cod.market.member.entity.Member;
 import com.cod.market.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 
 @Service
@@ -24,5 +26,16 @@ public class MemberService {
         memberRepository.save(member);
 
         return member;
+    }
+
+    public Member getMember(String username) {
+
+        Optional<Member> member = memberRepository.findByUsername(username);
+        if (member.isPresent()) {
+            return member.get();
+        } else {
+            System.out.println("회원을 찾을 수 없습니다.");
+        }
+        return getMember(username);
     }
 }

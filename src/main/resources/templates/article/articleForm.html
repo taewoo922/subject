@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html layout:decorate="~{/layout/layout}">
+<div layout:fragment="content" class="container mt-[100px]">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="card">
+        <div class="card-header">게시글 작성</div>
+        <div class="card-body">
+          <form th:action="@{/article/write}" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">제목</label>
+              <input type="text" name="title" id="title" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="content" class="form-label">내용</label>
+              <input type="content" name="content" id="content" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">작성</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
